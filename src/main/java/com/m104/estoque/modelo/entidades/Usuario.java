@@ -4,8 +4,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 @Entity
 public class Usuario {
@@ -14,15 +12,11 @@ public class Usuario {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	
-	@NotNull(message = "Preencha o nome.")
 	private String nome;
 	
-	@NotNull(message = "Preencha o login.")
 	private String login;
 	
-	@NotNull(message = "Preencha a senha.")
-	@Size(min=6, max=20, message="Mínimo de 2 e máximo de 20 caracteres.")
-	private String Senha;
+	private String senha;
 
 	public int getId() {
 		return id;
@@ -49,11 +43,11 @@ public class Usuario {
 	}
 
 	public String getSenha() {
-		return Senha;
+		return senha;
 	}
 
 	public void setSenha(String senha) {
-		Senha = senha;
+		this.senha = senha;
 	}
 
 }

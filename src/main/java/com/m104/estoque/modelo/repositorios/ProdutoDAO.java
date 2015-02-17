@@ -9,32 +9,32 @@ import javax.persistence.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.m104.estoque.modelo.entidades.Setor;
+import com.m104.estoque.modelo.entidades.Produto;
 
 @Repository
-public class SetorDAO {
+public class ProdutoDAO {
 
 	@PersistenceContext
 	EntityManager em;
 	
 	@Transactional
-	public void salvar(Setor setor){
-		em.merge(setor);
+	public void salvar(Produto produto){
+		em.merge(produto);
 	}
 	
 	@Transactional
-	public void excluir(Setor setor){
-		Setor setorTmp = buscarPorId(setor.getId());
-		em.remove(setorTmp);
+	public void excluir(Produto produto){
+		Produto produtoTmp = buscarPorId(produto.getId());
+		em.remove(produtoTmp);
 	}
 	
-	public Setor buscarPorId(int id){
-		return em.find(Setor.class, id);
+	public Produto buscarPorId(int id){
+		return em.find(Produto.class, id);
 	}
 	
 	@SuppressWarnings("unchecked")
-	public List<Setor> buscartodos(){
-		Query consulta = em.createQuery("select s from Setor s");
+	public List<Produto> buscartodos(){
+		Query consulta = em.createQuery("select p from Produto p");
 		return consulta.getResultList();
 	}
 	
