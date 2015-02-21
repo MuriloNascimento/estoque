@@ -34,7 +34,7 @@ public class SetorDAO {
 	
 	@SuppressWarnings("unchecked")
 	public List<Setor> buscartodos(){
-		Query consulta = em.createQuery("select s from Setor s");
+		Query consulta = em.createNamedQuery("Setor.buscarTodos");
 		return consulta.getResultList();
 	}
 	

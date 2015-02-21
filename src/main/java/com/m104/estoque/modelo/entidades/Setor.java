@@ -8,9 +8,11 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
 @Entity
+@NamedQuery(name="Setor.buscarTodos",query="select s from Setor s")
 public class Setor {
 
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)

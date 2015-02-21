@@ -19,31 +19,16 @@
 			</div>
 			<div class="col-md-9">
 				
-				<div class="bs-example" data-example-id="hoverable-table">
-					<table class="table table-hover">
-						<thead>
-							<tr>
-								<th>Código</th>
-								<th>Nome</th>
-								<th>Login</th>
-								<th>Senha</th>
-								<th>Actions</th>
-							</tr>
-						</thead>
-						<tbody>
-							<c:forEach var="usuario" items="${requestScope.usuarios}">
-								<tr>
-									<td>${usuario.id}</td>
-									<td><a href="http://localhost:8080/estoque/usuario/perfil/${usuario.id}">${usuario.nome}</a></td>
-									<td>${usuario.login}</td>
-									<td>${usuario.senha}</td>
-									<td><a href="alteracao/${usuario.id}" class="btn btn-default">Alterar</a> <a href="javascript:func()" onclick="confirmacao(${usuario.id},'usuario')" class="btn btn-default">Deletar</a></td>
-								</tr>
-							</c:forEach>
-						</tbody>
-					</table>
-				</div>
+				<c:catch var="exception">
+					<img src='<c:url value="http://localhost:8080/estoque/skin/images/${requestScope.usuario.id}.jpg"/>' width="200"/>
+				</c:catch>
+				<c:if test="${ exception != null }">
+					<img src='<c:url value="http://localhost:8080/estoque/skin/images/padrao.gif"/>' width="200"/>
+				</c:if>
 				
+				
+				<p>${requestScope.usuario.nome}</p>
+			
 			</div>
 		
 		</div>		

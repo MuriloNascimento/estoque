@@ -1,0 +1,5 @@
+@CHARSET "UTF-8";
+
+.list-group-item{border:none;}
+.marginTop{margin-top: 40px;}
+.rodape{border:1px solid #dddddd; margin:0 auto; padding:20px 0; text-align: center; margin-top:80px; border-radius:3px; width: 1140px;}

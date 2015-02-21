@@ -35,7 +35,7 @@ public class UsuarioDAO {
 	
 	
 	public List<Usuario> buscartodos(){
-		Query consulta = em.createQuery("select u from Usuario u");
+		Query consulta = em.createNamedQuery("Usuario.buscarTodos");
 		return consulta.getResultList();
 	}
 	

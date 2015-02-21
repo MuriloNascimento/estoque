@@ -17,10 +17,15 @@
 	
 	<title>${requestScope.tituloPagina}</title>
 	
-	<style type="text/css">
-		.list-group-item{border:none;}
-		.marginTop{margin-top: 40px;}
-		.rodape{border:1px solid #dddddd; margin:0 auto; padding:20px 0; text-align: center; margin-top:80px; border-radius:3px; width: 1140px;}
-	</style>
+	<link rel="stylesheet" href="http://localhost:8080/estoque/skin/css/estilo.css">
+	
+	<script type="text/javascript">
+		function confirmacao(id,classe){
+			var r = confirm("Deseja excluir?");
+		    if (r == true) {
+		    	window.location.href = "http://localhost:8080/estoque/"+classe+"/deletar/"+id;
+		    }
+		}
+	</script>
 
 </head>

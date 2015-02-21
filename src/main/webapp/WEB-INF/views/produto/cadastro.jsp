@@ -15,27 +15,29 @@
 		
 			<div class="col-md-3">
 				<ul class="nav nav-pills nav-stacked">
-	                <li class=""><a href="cadastro" class="list-group-item">Cadastrar</a></li>
-	                <li class=""><a href="listagem" class="list-group-item">Listar</a></li>
+	                <li class=""><a href="http://localhost:8080/estoque/produto/cadastro" class="list-group-item">Cadastrar</a></li>
+	                <li class=""><a href="http://localhost:8080/estoque/produto/listagem" class="list-group-item">Listar</a></li>
 	            </ul>
 			</div>
 			<div class="col-md-9">
 				
-				<form class="form-horizontal" action="cadastrar">
+				<form class="form-horizontal" action="http://localhost:8080/estoque/produto/cadastrar">
 				  <fieldset>
-				    <legend>Cadastro de Setor</legend>
+				    <legend>Cadastro de Produto</legend>
+				    <input type="hidden" value="${requestScope.produto.id}" name="id">
 				    <div class="form-group">
 				      <label for="inputNome" class="col-lg-2 control-label">Nome</label>
 				      <div class="col-lg-10">
-				        <input type="text" name="nome" class="form-control" id="inputNome" placeholder="Nome">
+				        <input type="text" name="nome" value="${requestScope.produto.nome}" class="form-control" id="inputNome" placeholder="Nome">
 				      </div>
 				    </div>
 				    <div class="form-group">
 				      <label for="select" class="col-lg-2 control-label">Setor</label>
 				      <div class="col-lg-10">
 				      	<select class="form-control" id="select" name="setor">
+				      		<option value="" disabled selected>Escolha um setor</option>
 				        	<c:forEach var="setor" items="${requestScope.setores}">	
-				          		<option value="${setor.id}">${setor.nome}</option>
+				          		<option value="${setor.id}" ${requestScope.produto.setor.id == setor.id ? 'selected' : ''}>${setor.nome}</option>
 				      		</c:forEach>
 				      	</select>
 				      </div>

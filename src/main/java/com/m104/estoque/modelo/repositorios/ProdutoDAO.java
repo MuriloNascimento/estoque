@@ -34,7 +34,7 @@ public class ProdutoDAO {
 	
 	@SuppressWarnings("unchecked")
 	public List<Produto> buscartodos(){
-		Query consulta = em.createQuery("select p from Produto p");
+		Query consulta = em.createNamedQuery("Produto.buscarTodos");
 		return consulta.getResultList();
 	}
 	

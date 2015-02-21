@@ -13,8 +13,8 @@
 		
 			<div class="col-md-3">
 				<ul class="nav nav-pills nav-stacked">
-	                <li class=""><a href="cadastro" class="list-group-item">Cadastrar</a></li>
-	                <li class=""><a href="listagem" class="list-group-item">Listar</a></li>
+	                <li class=""><a href="http://localhost:8080/estoque/setor/cadastro" class="list-group-item">Cadastrar</a></li>
+	                <li class=""><a href="http://localhost:8080/estoque/setor/listagem" class="list-group-item">Listar</a></li>
 	            </ul>
 			</div>
 			<div class="col-md-9">
@@ -25,6 +25,7 @@
 							<tr>
 								<th>Código</th>
 								<th>Nome</th>
+								<th>Actions</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -32,6 +33,8 @@
 								<tr>
 									<td>${setor.id}</td>
 									<td>${setor.nome}</td>
+									<td><a href="alteracao/${setor.id}" class="btn btn-default">Alterar</a> <a href="javascript:func()" onclick="confirmacao(${setor.id},'setor')" class="btn btn-default">Deletar</a></td>
+									
 								</tr>
 							</c:forEach>
 						</tbody>

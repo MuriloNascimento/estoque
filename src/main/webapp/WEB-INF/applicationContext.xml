@@ -43,11 +43,18 @@
 		<property name="entityManagerFactory" ref="entityManagerFactory"></property>
 	</bean>
 	<mvc:annotation-driven />
+	
+	<mvc:resources mapping="/skin/**" location="/skin/" />
+	
 	<tx:annotation-driven transaction-manager="trasactionManager" />
 
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/views/" />
 		<property name="suffix" value=".jsp" />
+	</bean>
+	
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="1000000" />
 	</bean>
 
 </beans>

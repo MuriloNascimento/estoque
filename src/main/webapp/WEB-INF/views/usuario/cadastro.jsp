@@ -2,6 +2,7 @@
 <%@taglib prefix="sf" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
+
 <c:import url="/WEB-INF/views/base/head.jsp"></c:import>
 <body>
 
@@ -13,31 +14,38 @@
 		
 			<div class="col-md-3">
 				<ul class="nav nav-pills nav-stacked">
-	                <li class=""><a href="cadastro" class="list-group-item">Cadastrar</a></li>
-	                <li class=""><a href="listagem" class="list-group-item">Listar</a></li>
+	                <li class=""><a href="http://localhost:8080/estoque/usuario/cadastro" class="list-group-item">Cadastrar</a></li>
+	                <li class=""><a href="http://localhost:8080/estoque/usuario/listagem" class="list-group-item">Listar</a></li>
 	            </ul>
 			</div>
 			<div class="col-md-9">
 				
-				<form class="form-horizontal" action="cadastrar">
+				<form class="form-horizontal" action="http://localhost:8080/estoque/usuario/cadastrar/"  method="post" enctype="multipart/form-data">
 				  <fieldset>
 				    <legend>Cadastro de Usuario</legend>
+				    <input type="hidden" value="${requestScope.usuario.id}" name="id">
 				    <div class="form-group">
 				      <label for="inputNome" class="col-lg-2 control-label">Nome</label>
 				      <div class="col-lg-10">
-				        <input type="text" name="nome" class="form-control" id="inputNome" placeholder="Nome">
+				        <input type="text" name="nome" class="form-control" id="inputNome" placeholder="Nome" value="${requestScope.usuario.nome}">
 				      </div>
 				    </div>
 				    <div class="form-group">
 				      <label for="inputLogin" class="col-lg-2 control-label">Login</label>
 				      <div class="col-lg-10">
-				        <input type="text" name="login" class="form-control" id="inputLogin" placeholder="login">
+				        <input type="text" name="login" class="form-control" id="inputLogin" placeholder="login" value="${requestScope.usuario.login}">
 				      </div>
 				    </div>
 				    <div class="form-group">
 				      <label for="inputPassword" class="col-lg-2 control-label">Senha</label>
 				      <div class="col-lg-10">
-				        <input type="password" name="senha" class="form-control" id="inputPassword" placeholder="Senha">
+				        <input type="password" name="senha" class="form-control" id="inputPassword" placeholder="Senha" value="${requestScope.usuario.senha}">
+				      </div>
+				    </div>
+				    <div class="form-group">
+				      <label for="inputAvatar" class="col-lg-2 control-label">Avatar</label>
+				      <div class="col-lg-10">
+				        <input type="file" name="avatar" class="form-control" id="inputAvatar" >
 				      </div>
 				    </div>
 				    <div class="form-group">

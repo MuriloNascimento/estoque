@@ -13,8 +13,8 @@
 		
 			<div class="col-md-3">
 				<ul class="nav nav-pills nav-stacked">
-	                <li class=""><a href="cadastro" class="list-group-item">Cadastrar</a></li>
-	                <li class=""><a href="listagem" class="list-group-item">Listar</a></li>
+	                <li class=""><a href="http://localhost:8080/estoque/setor/cadastro" class="list-group-item">Cadastrar</a></li>
+	                <li class=""><a href="http://localhost:8080/estoque/setor/listagem" class="list-group-item">Listar</a></li>
 	            </ul>
 			</div>
 			<div class="col-md-9">
