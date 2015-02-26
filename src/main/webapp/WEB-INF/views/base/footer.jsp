@@ -1,3 +1,5 @@
-<div class="container rodape">
-	Copyright m104 tecnology solution
+<div class="container-fluid rodape">
+	<div class="container ">
+		Copyright m104 tecnology solution
+	</div>
 </div>

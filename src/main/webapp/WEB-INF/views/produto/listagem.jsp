@@ -14,7 +14,7 @@
 			<div class="col-md-3">
 				<ul class="nav nav-pills nav-stacked">
 	                <li class=""><a href="http://localhost:8080/estoque/produto/cadastro" class="list-group-item">Cadastrar</a></li>
-	                <li class=""><a href="http://localhost:8080/estoque/produto/listagem" class="list-group-item">Listar</a></li>
+	                <li class=""><a href="http://localhost:8080/estoque/produto/listagem/1" class="list-group-item">Listar</a></li>
 	            </ul>
 			</div>
 			<div class="col-md-9">
@@ -31,7 +31,7 @@
 						</thead>
 						<tbody>
 							<c:forEach var="produto" items="${requestScope.produtos}">
-								<tr>
+								<tr class="">
 									<td>${produto.id}</td>
 									<td>${produto.nome}</td>
 									<td>${produto.setor.nome}</td>
@@ -40,6 +40,13 @@
 							</c:forEach>
 						</tbody>
 					</table>
+				</div>
+				
+				<div>
+					<ul class="pagination pagination-sm">
+					  <li><a href="javascript:function();" class="retornar">«</a></li>
+					  <li><a href="javascript:function();" class="avancar" >»</a></li>
+					</ul>
 				</div>
 				
 			</div>

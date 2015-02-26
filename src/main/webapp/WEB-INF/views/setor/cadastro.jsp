@@ -19,13 +19,14 @@
 			</div>
 			<div class="col-md-9">
 				
-				<form class="form-horizontal" action="cadastrar">
+				<form class="form-horizontal" action="http://localhost:8080/estoque/setor/cadastrar">
 				  <fieldset>
 				    <legend>Cadastro de Setor</legend>
+				    <input type="hidden" value="${requestScope.setor.id}" name="id">
 				    <div class="form-group">
 				      <label for="inputNome" class="col-lg-2 control-label">Nome</label>
 				      <div class="col-lg-10">
-				        <input type="text" name="nome" class="form-control" id="inputNome" placeholder="Nome">
+				        <input type="text" name="nome" class="form-control" id="inputNome" placeholder="Nome" value="${requestScope.setor.nome}">
 				      </div>
 				    </div>
 				    <div class="form-group">

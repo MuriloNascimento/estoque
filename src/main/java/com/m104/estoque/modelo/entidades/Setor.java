@@ -8,11 +8,15 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
 @Entity
-@NamedQuery(name="Setor.buscarTodos",query="select s from Setor s")
+@NamedQueries ({
+	@NamedQuery(name="Setor.buscarTodos",query="select s from Setor s"),
+	@NamedQuery(name="Setor.buscarTodosDesc",query="select s from Setor s order by s.id DESC")
+})
 public class Setor {
 
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)

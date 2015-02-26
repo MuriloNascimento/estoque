@@ -16,7 +16,7 @@
 			<div class="col-md-3">
 				<ul class="nav nav-pills nav-stacked">
 	                <li class=""><a href="http://localhost:8080/estoque/produto/cadastro" class="list-group-item">Cadastrar</a></li>
-	                <li class=""><a href="http://localhost:8080/estoque/produto/listagem" class="list-group-item">Listar</a></li>
+	                <li class=""><a href="http://localhost:8080/estoque/produto/listagem/1" class="list-group-item">Listar</a></li>
 	            </ul>
 			</div>
 			<div class="col-md-9">

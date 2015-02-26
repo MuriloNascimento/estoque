@@ -7,10 +7,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 
 @Entity
-@NamedQuery(name="Produto.buscarTodos",query="select p from Produto p")
+@NamedQueries ({
+	@NamedQuery(name="Produto.buscarTodos",query="select p from Produto p"),
+	@NamedQuery(name="Produto.buscarOrdenadoPorSetor",query="select p from Produto p order by p.setor"),
+	@NamedQuery(name="Produto.buscarTodosDesc",query="select p from Produto p order by p.id DESC")
+})
 public class Produto {
 
 	@Id

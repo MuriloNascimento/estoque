@@ -38,4 +38,10 @@ public class SetorDAO {
 		return consulta.getResultList();
 	}
 	
+	@SuppressWarnings("unchecked")
+	public List<Setor> buscartodosDesc(){
+		Query consulta = em.createNamedQuery("Setor.buscarTodosDesc");
+		return consulta.getResultList();
+	}
+	
 }

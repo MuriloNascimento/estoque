@@ -1,5 +1,7 @@
 package com.m104.estoque.controller;
 
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 
@@ -49,11 +51,18 @@ public class ProdutoController {
 		return "produto/cadastro";
 	}
 	
-	@RequestMapping("/listagem")
-	public String listagem(Model model){
-		model.addAttribute("tituloPagina","Listagem de Produtos");
-		model.addAttribute("produtos",pdao.buscartodos());
-		return "produto/listagem";
+	@RequestMapping("/listagem/{page}")
+	public String listagem(Model model,@PathVariable("page") int page){
+		int max = page * 10;
+		int min = max - 10;
+		List<Produto> produtos = pdao.buscarOrdenadoPorSetor(min,max);
+		if(produtos.isEmpty()){
+			return "redirect:http://localhost:8080/estoque/produto/listagem/"+(page-1);
+		} else {
+			model.addAttribute("tituloPagina","Listagem de Produtos");
+			model.addAttribute("produtos",produtos);
+			return "produto/listagem";
+		}
 	}
 	
 	@RequestMapping("/cadastrar")

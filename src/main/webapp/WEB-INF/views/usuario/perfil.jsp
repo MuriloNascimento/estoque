@@ -17,20 +17,29 @@
 	                <li class=""><a href="http://localhost:8080/estoque/usuario/listagem" class="list-group-item">Listar</a></li>
 	            </ul>
 			</div>
-			<div class="col-md-9">
+			<div class="col-md-9 perfil">
 				
-				<c:catch var="exception">
-					<img src='<c:url value="http://localhost:8080/estoque/skin/images/${requestScope.usuario.id}.jpg"/>' width="200"/>
-				</c:catch>
-				<c:if test="${ exception != null }">
-					<img src='<c:url value="http://localhost:8080/estoque/skin/images/padrao.gif"/>' width="200"/>
-				</c:if>
-				
-				
-				<p>${requestScope.usuario.nome}</p>
-			
+				<div class="container-fluid">
+					  		
+					  <div class="row">
+					  			
+						  	<div class="col-md-3">
+
+						  		<img class="avatar" src='<c:url value="http://localhost:8080/estoque/skin/images/${requestScope.usuario.id}.jpg"/>'/>
+
+						  	</div>
+						  			
+				  			<div class="col-md-9">
+				  				<h3>${requestScope.usuario.nome}</h3>
+				  				<p>Login: ${requestScope.usuario.login}</p>
+				  			</div>
+					  			
+					  </div>
+					  
+				</div>
+					
 			</div>
-		
+
 		</div>		
 		
 	</div>

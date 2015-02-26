@@ -38,4 +38,18 @@ public class ProdutoDAO {
 		return consulta.getResultList();
 	}
 	
+	@SuppressWarnings("unchecked")
+	public List<Produto> buscarOrdenadoPorSetor(int startPosition,int maxResult){
+		Query consulta = em.createNamedQuery("Produto.buscarOrdenadoPorSetor");
+		consulta.setFirstResult(startPosition);
+		consulta.setMaxResults(maxResult);
+		return consulta.getResultList();
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Produto> buscartodosDesc(){
+		Query consulta = em.createNamedQuery("Produto.buscarTodosDesc");
+		return consulta.getResultList();
+	}
+	
 }

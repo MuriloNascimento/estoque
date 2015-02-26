@@ -21,8 +21,8 @@ public class HomeController {
 
 	@RequestMapping("/")
 	public String index(Model model){
-		model.addAttribute("setores",sdao.buscartodos());
-		model.addAttribute("produtos",pdao.buscartodos());
+		model.addAttribute("setores",sdao.buscartodosDesc());
+		model.addAttribute("produtos",pdao.buscartodosDesc());
 		model.addAttribute("tituloPagina", "Controle Estoque");
 		return "index";
 	}
