@@ -9,11 +9,16 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 
 @Entity
 @NamedQueries ({
 	@NamedQuery(name="Produto.buscarTodos",query="select p from Produto p"),
 	@NamedQuery(name="Produto.buscarOrdenadoPorSetor",query="select p from Produto p order by p.setor"),
+	@NamedQuery(name="Produto.buscarPorPalavraChave",query="select p from Produto p where p.nome LIKE :palavra"),
+	@NamedQuery(name="Produto.quantidadeProdutos",query="select COUNT(p) from Produto p"),
 	@NamedQuery(name="Produto.buscarTodosDesc",query="select p from Produto p order by p.id DESC")
 })
 public class Produto {
@@ -22,11 +27,14 @@ public class Produto {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	
+	@NotNull
+	@Size(min=3)
 	@Column(length=30,nullable=false,unique=true)
 	private String nome;
 	
+	@NotNull
 	@JoinColumn
-	@ManyToOne
+	@ManyToOne 
 	private Setor setor;
 	
 	@Override

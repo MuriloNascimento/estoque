@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -50,6 +51,18 @@ public class ProdutoDAO {
 	public List<Produto> buscartodosDesc(){
 		Query consulta = em.createNamedQuery("Produto.buscarTodosDesc");
 		return consulta.getResultList();
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Produto> buscarPorPalvraChave(String palavra){
+		Query consulta = em.createNamedQuery("Produto.buscarPorPalavraChave");
+		consulta.setParameter("palavra", "%"+palavra+"%");
+		return consulta.getResultList();
+	}
+	
+	public Long quantidadeProdutos(){
+		TypedQuery<Long> consulta = em.createNamedQuery("Produto.quantidadeProdutos",Long.class);
+		return consulta.getSingleResult();
 	}
 	
 }

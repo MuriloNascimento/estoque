@@ -47,6 +47,7 @@
 					  <li><a href="javascript:function();" class="retornar">«</a></li>
 					  <li><a href="javascript:function();" class="avancar" >»</a></li>
 					</ul>
+					<p>${requestScope.quantidade} produtos cadastrados</p>
 				</div>
 				
 			</div>
@@ -57,5 +58,45 @@
 	
 	<c:import url="/WEB-INF/views/base/footer.jsp"></c:import>
 	
+	<script>
+	
+	jQuery(document).ready(function(){
+		
+		var pagina = ${page};
+		if(pagina == 1){
+			jQuery(".retornar").parent().addClass("disabled");
+		}
+		
+		function confirmacao(id,classe){
+			var r = confirm("Deseja excluir?");
+		    if (r == true) {
+		    	window.location.href = "http://localhost:8080/estoque/"+classe+"/deletar/"+id;
+		    }
+		}
+		
+		var avancar = function(pagina){
+			pagina++;
+			window.location.href = "http://localhost:8080/estoque/produto/listagem/"+pagina;
+		}
+		
+		var retornar = function(pagina){
+			if(pagina > 1){
+				pagina--;
+				window.location.href = "http://localhost:8080/estoque/produto/listagem/"+pagina;
+			} 
+		}
+		
+		jQuery(".avancar").click(function(){
+			var pagina = ${page};
+			avancar(pagina);
+		});
+		
+		jQuery(".retornar").click(function(){
+			var pagina = ${page};
+			retornar(pagina);
+		});
+		
+	})
+	</script>
 </body>
 </html>

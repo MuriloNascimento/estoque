@@ -22,45 +22,13 @@
 	<link rel="stylesheet" href="http://localhost:8080/estoque/skin/css/estilo.css">
 	<script>jQuery.noConflict();</script>
 	<script>
-	jQuery(document).ready(function(){
-		
-		
-		
+	
 		function confirmacao(id,classe){
 			var r = confirm("Deseja excluir?");
 		    if (r == true) {
 		    	window.location.href = "http://localhost:8080/estoque/"+classe+"/deletar/"+id;
 		    }
 		}
-		
-		var avancar = function(pagina){
-			pagina++;
-			window.location.href = "http://localhost:8080/estoque/produto/listagem/"+pagina;
-		}
-		
-		var pagina = ${page};
-		if(pagina == 1){
-			jQuery(".retornar").parent().addClass("disabled");
-		}
-		
-		var retornar = function(pagina){
-			if(pagina > 1){
-				pagina--;
-				window.location.href = "http://localhost:8080/estoque/produto/listagem/"+pagina;
-			} 
-		}
-		
-		jQuery(".avancar").click(function(){
-			var pagina = ${page};
-			avancar(pagina);
-		});
-		
-		jQuery(".retornar").click(function(){
-			var pagina = ${page};
-			retornar(pagina);
-		});
-		
-	})
 	</script>
 
 </head>

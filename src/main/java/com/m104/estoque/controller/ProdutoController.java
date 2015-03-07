@@ -4,9 +4,11 @@ import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.ServletRequestDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -53,6 +55,7 @@ public class ProdutoController {
 	
 	@RequestMapping("/listagem/{page}")
 	public String listagem(Model model,@PathVariable("page") int page){
+		Long quandidade = pdao.quantidadeProdutos();
 		int max = page * 10;
 		int min = max - 10;
 		List<Produto> produtos = pdao.buscarOrdenadoPorSetor(min,max);
@@ -61,21 +64,35 @@ public class ProdutoController {
 		} else {
 			model.addAttribute("tituloPagina","Listagem de Produtos");
 			model.addAttribute("produtos",produtos);
+			model.addAttribute("quantidade",quandidade);
 			return "produto/listagem";
 		}
 	}
 	
+	@RequestMapping("/busca")
+	public String busca(Model model,String palavra){
+		model.addAttribute("tituloPagina","Busca de Produto");
+		model.addAttribute("produtos",pdao.buscarPorPalvraChave(palavra));
+		return "produto/listagem";
+		
+	}
+	
 	@RequestMapping("/cadastrar")
-	public String cadastrar(Produto produto){
-		pdao.salvar(produto);
-		return "redirect:cadastro";
+	public String cadastrar(@Valid Produto produto, BindingResult result){
+		if(result.hasErrors()) {
+			return "redirect:cadastro";
+		} else {
+			pdao.salvar(produto);
+			return "redirect:cadastro";
+		}
+		
 	}
 	
 	@RequestMapping("/deletar/{id}")
 	public String deletar(@PathVariable("id") int id){
 		Produto produto = pdao.buscarPorId(id);
 		pdao.excluir(produto);
-		return "redirect:http://localhost:8080/estoque/produto/listagem";
+		return "redirect:http://localhost:8080/estoque/produto/listagem/1";
 	}
 	
 }

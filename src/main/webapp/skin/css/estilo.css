@@ -29,3 +29,16 @@
 	border-radius:100px;
 	border:1px solid #CAC7C7;
 }
+
+.login-panel{
+	width: 300px;
+	position: absolute;
+	top: 50%;
+	margin-top:-98px;
+	left: 50%;
+	margin-left: -150px;
+}
+
+.botao-login{
+	margin-top: 20px;
+}

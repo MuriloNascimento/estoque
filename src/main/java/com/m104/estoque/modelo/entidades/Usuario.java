@@ -4,10 +4,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 
 @Entity
-@NamedQuery(name="Usuario.buscarTodos",query="select u from Usuario u")
+
+@NamedQueries ({
+	@NamedQuery(name="Usuario.buscarTodos",query="select u from Usuario u"),
+	@NamedQuery(name="Usuario.logar",query="select u from Usuario u where u.senha = :senha and u.login = :login")
+})
 public class Usuario {
 	
 	@Id

@@ -4,6 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <jsp:useBean id="agora" class="java.util.Date"/>
 
+
 <c:import url="/WEB-INF/views/base/head.jsp"></c:import>
 <body>
 
@@ -21,14 +22,16 @@
 			</div>
 			<div class="col-md-9">
 				
-				<form class="form-horizontal" action="http://localhost:8080/estoque/produto/cadastrar">
+				<form:form class="form-horizontal" action="http://localhost:8080/estoque/produto/cadastrar" commandName="produto">
 				  <fieldset>
 				    <legend>Cadastro de Produto</legend>
+				    <form:errors path="nome"/>
 				    <input type="hidden" value="${requestScope.produto.id}" name="id">
 				    <div class="form-group">
 				      <label for="inputNome" class="col-lg-2 control-label">Nome</label>
 				      <div class="col-lg-10">
 				        <input type="text" name="nome" value="${requestScope.produto.nome}" class="form-control" id="inputNome" placeholder="Nome">
+				        
 				      </div>
 				    </div>
 				    <div class="form-group">
@@ -49,9 +52,11 @@
 				      </div>
 				    </div>
 				  </fieldset>
-				</form>
+				</form:form>
+				
+				
 			</div>
-		
+			
 		</div>		
 		
 	</div>

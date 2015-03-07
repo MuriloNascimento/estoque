@@ -40,8 +40,13 @@ public class UsuarioDAO {
 	}
 	
 	public List<Usuario> buscarPorLoginSenha(String login,String senha){
-		Query consulta = em.createQuery("select u from Usuario u where u.login=:login u.senha=:senha");
+
+		Query consulta = em.createNamedQuery("Usuario.logar");
+		consulta.setParameter("login", login);
+		consulta.setParameter("senha", senha);
+		
 		return consulta.getResultList();
+		
 	}
 	
 }
