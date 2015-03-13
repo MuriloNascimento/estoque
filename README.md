@@ -1,6 +1,6 @@
 # estoque
 
-extremely simple sistem of control stock
+extremely simple system of control stock
 
 <p>requirements:</p>
 
