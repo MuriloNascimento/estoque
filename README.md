@@ -2,9 +2,9 @@
 
 extremely simple sistem of control stock
 
-requirements:
+<p>requirements:</p>
 
-Hibernate with JPA
-Spring and Spring MVC
-Bootstrap Paper theme
-Tomcat 8
+<p>Hibernate with JPA</p>
+<p>Spring and Spring MVC</p>
+<p>Bootstrap Paper theme</p>
+<p>Tomcat 8</p>
