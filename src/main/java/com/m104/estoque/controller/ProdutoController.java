@@ -13,6 +13,7 @@ import org.springframework.web.bind.ServletRequestDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.m104.estoque.convertion.SetorConvertion;
 import com.m104.estoque.modelo.entidades.Produto;
@@ -74,10 +75,9 @@ public class ProdutoController {
 		model.addAttribute("tituloPagina","Busca de Produto");
 		model.addAttribute("produtos",pdao.buscarPorPalvraChave(palavra));
 		return "produto/listagem";
-		
 	}
 	
-	@RequestMapping("/cadastrar")
+	@RequestMapping(value="/cadastrar",method=RequestMethod.POST)
 	public String cadastrar(@Valid Produto produto, BindingResult result){
 		if(result.hasErrors()) {
 			return "redirect:cadastro";

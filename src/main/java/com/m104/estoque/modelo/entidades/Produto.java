@@ -27,12 +27,12 @@ public class Produto {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	
-	@NotNull
+	@NotNull(message="Faltou o produto")
 	@Size(min=3)
 	@Column(length=30,nullable=false,unique=true)
 	private String nome;
 	
-	@NotNull
+	@NotNull(message="Faltou o setor")
 	@JoinColumn
 	@ManyToOne 
 	private Setor setor;

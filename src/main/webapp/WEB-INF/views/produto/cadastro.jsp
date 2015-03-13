@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <jsp:useBean id="agora" class="java.util.Date"/>
@@ -22,22 +22,22 @@
 			</div>
 			<div class="col-md-9">
 				
-				<form:form class="form-horizontal" action="http://localhost:8080/estoque/produto/cadastrar" commandName="produto">
+				<sf:form class="form-horizontal" action="http://localhost:8080/estoque/produto/cadastrar" commandName="produto">
 				  <fieldset>
 				    <legend>Cadastro de Produto</legend>
-				    <form:errors path="nome"/>
+				    
 				    <input type="hidden" value="${requestScope.produto.id}" name="id">
 				    <div class="form-group">
 				      <label for="inputNome" class="col-lg-2 control-label">Nome</label>
 				      <div class="col-lg-10">
+				      	<sf:errors path="nome"/>
 				        <input type="text" name="nome" value="${requestScope.produto.nome}" class="form-control" id="inputNome" placeholder="Nome">
-				        
 				      </div>
 				    </div>
 				    <div class="form-group">
 				      <label for="select" class="col-lg-2 control-label">Setor</label>
 				      <div class="col-lg-10">
-				      	<select class="form-control" id="select" name="setor">
+				      	<select class="form-control" id="select" name="setor" >
 				      		<option value="" disabled selected>Escolha um setor</option>
 				        	<c:forEach var="setor" items="${requestScope.setores}">	
 				          		<option value="${setor.id}" ${requestScope.produto.setor.id == setor.id ? 'selected' : ''}>${setor.nome}</option>
@@ -52,7 +52,7 @@
 				      </div>
 				    </div>
 				  </fieldset>
-				</form:form>
+				</sf:form>
 				
 				
 			</div>
