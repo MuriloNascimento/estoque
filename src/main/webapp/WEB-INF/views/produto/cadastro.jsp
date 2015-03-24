@@ -46,6 +46,12 @@
 				      </div>
 				    </div>
 				    <div class="form-group">
+				      <label for="inputValidade" class="col-lg-2 control-label">Data de Validade:</label>
+				      <div class="col-lg-10">
+				        <input type="date" name="validade" value="${requestScope.produto.validade}" class="form-control" id="inputValidade" placeholder="00/00/0000"/>
+				      </div>
+				    </div>
+				    <div class="form-group">
 				      <div class="col-lg-10 col-lg-offset-2">
 				        <button type="reset" class="btn btn-default">Cancel</button>
 				        <button type="submit" class="btn btn-primary">Submit</button>

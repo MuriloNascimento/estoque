@@ -27,6 +27,7 @@
 								<th>Nome</th>
 								<th>Setor</th>
 								<th>Alterado em</th>
+								<th>Vence em</th>
 								<th>Actions</th>
 							</tr>
 						</thead>
@@ -37,6 +38,7 @@
 									<td>${produto.nome}</td>
 									<td>${produto.setor.nome}</td>
 									<td>${produto.data}</td>
+									<td>${produto.validade}</td>
 									<td><a href="http://localhost:8080/estoque/produto/alteracao/${produto.id}" class="btn btn-default">Alterar</a> <a href="javascript:func()" onclick="confirmacao(${produto.id},'produto')" class="btn btn-default">Deletar</a></td>
 								</tr>
 							</c:forEach>

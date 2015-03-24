@@ -16,6 +16,8 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 
 @Entity
 @NamedQueries ({
@@ -44,8 +46,19 @@ public class Produto {
 	@Temporal(value=TemporalType.DATE)
 	private Date data = new Date();
 	
+	@Temporal(value=TemporalType.DATE)
+	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+	private Date validade;
 	
-	
+	public Date getValidade() {
+		return validade;
+	}
+	public void setValidade(Date validade) {
+		this.validade = validade;
+	}
+	public void setData(Date data) {
+		this.data = data;
+	}
 	public Date getData() {
 		return data;
 	}
