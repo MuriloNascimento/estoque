@@ -1,9 +1,11 @@
 package com.m104.estoque.controller;
 
 import javax.inject.Inject;
+import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -41,8 +43,21 @@ public class SetorController {
 	}
 	
 	@RequestMapping("/cadastrar")
-	public String cadastrar(Setor setor){
-		sdao.salvar(setor);
+	public String cadastrar(@Valid Setor setor,BindingResult result,Model model){
+		try {
+			
+			if(result.hasFieldErrors("nome")){
+				model.addAttribute("msgm",result.getFieldError().getDefaultMessage());
+				return "forward:cadastro";
+			}
+			model.addAttribute("msgm","cadastrado com sucesso");
+			sdao.salvar(setor);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.err.println(e.initCause(e.getCause()));
+		}
+		
 		return "redirect:http://localhost:8080/estoque/setor/cadastro";
 	}
 	

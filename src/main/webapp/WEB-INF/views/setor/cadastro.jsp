@@ -37,6 +37,17 @@
 				    </div>
 				  </fieldset>
 				</form>
+				
+				<c:if test="${not empty msgm}">
+				    <div class="form-group">
+				      <div class="col-lg-10 col-lg-offset-2">
+				      	    <div class="alert alert-danger" role="alert">
+							  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+							  ${msgm}
+							</div>
+				      </div>
+				    </div>
+			    </c:if>
 			</div>
 		
 		</div>		

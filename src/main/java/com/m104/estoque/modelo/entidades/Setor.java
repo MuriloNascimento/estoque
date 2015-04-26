@@ -11,6 +11,9 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.Pattern;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @NamedQueries ({
@@ -22,7 +25,8 @@ public class Setor {
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	
-	
+	@NotEmpty(message="O nome deve ser preenchido")
+	@Pattern(regexp="^[A-Za-z]+$",message="Utilize apenas letras")
 	private String nome;
 	
 	
