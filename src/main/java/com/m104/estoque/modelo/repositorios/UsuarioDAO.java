@@ -5,6 +5,11 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -47,6 +52,21 @@ public class UsuarioDAO {
 		
 		return consulta.getResultList();
 		
+	}
+	
+	public Usuario buscaComCriteria(){
+		CriteriaBuilder cb = em.getCriteriaBuilder();
+		CriteriaQuery<Usuario> c = cb.createQuery(Usuario.class);
+		Root<Usuario> root = c.from(Usuario.class);
+		
+		c.select(root);
+		
+		Predicate predicate = cb.equal(root.get("login"), "admin");
+		
+		c.where(predicate);
+		
+		TypedQuery<Usuario> consulta = em.createQuery(c);
+		return consulta.getSingleResult();
 	}
 	
 }

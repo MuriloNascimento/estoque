@@ -55,6 +55,14 @@ public class UsuarioController {
 		return "usuario/perfil";
 	}
 	
+	@RequestMapping("perfil-criteria")
+	public String perfilCriteria(Model model){
+		Usuario usuarioPerfil = udao.buscaComCriteria();
+		model.addAttribute("usuario",usuarioPerfil);
+		model.addAttribute("tituloPagina","Perfil de "+usuarioPerfil.getNome());
+		return "usuario/perfil";
+	}
+	
 	@RequestMapping(value="/cadastrar",headers = "content-type=multipart/*")
 	public String cadastrar(Usuario usuario,@RequestParam(value="avatar", required=false) MultipartFile avatar){
 		
